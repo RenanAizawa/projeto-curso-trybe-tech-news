@@ -8,7 +8,7 @@ def fetch(url):
     try:
         time.sleep(1)
         resposta = requests.get(
-            url, headers={"user-agent": "Fake user-agent"} , timeout=3)
+            url, headers={"user-agent": "Fake user-agent"}, timeout=3)
     except Exception:
         return None
     if resposta.status_code != 200:
