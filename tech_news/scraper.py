@@ -1,5 +1,6 @@
 import requests
 import time
+from parsel import Selector
 
 
 # Requisito 1
@@ -19,6 +20,14 @@ def fetch(url):
 # Requisito 2
 def scrape_updates(html_content):
     """Seu código deve vir aqui"""
+    selecionado = Selector(text=html_content)
+    urls_noticias = []
+    for link in selecionado.css("h2.entry-title a::attr(href)").getall():
+        if link not in urls_noticias:
+            urls_noticias.append(link)
+    if len(urls_noticias) == 0:
+        return []
+    return urls_noticias
 
 
 # Requisito 3
