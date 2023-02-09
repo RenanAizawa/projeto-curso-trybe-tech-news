@@ -40,6 +40,18 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_news(html_content):
     """Seu código deve vir aqui"""
+    selecionado = Selector(text=html_content)
+    return (
+        {
+            "url": selecionado.css(),
+            "title": selecionado.css(),
+            "timestamp": selecionado.css(),
+            "writer": selecionado.css(),
+            "reading_time": selecionado.css(),
+            "summary": selecionado.css(),
+            "category": selecionado.css(),
+        }
+    )
 
 
 # Requisito 5
