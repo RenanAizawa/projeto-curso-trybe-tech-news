@@ -49,10 +49,9 @@ def scrape_news(html_content):
         "writer": selecionado.css('.author a::text').get(),
         "reading_time": int(selecionado.css(
             ".meta-reading-time::text").get().split(" ")[0]),
-        "summary": selecionado
-                    .xpath("string(//div[@class='entry-content']/p[1])")
-                    .getall()[0]
-                    .strip(),
+        "summary": selecionado.xpath(
+            "string(//div[@class='entry-content']/p[1])")
+            .getall()[0].strip(),
         "category": selecionado.css('.category-style .label::text').get(),
     }
     # print('print do texto >>>>>', scrape)
