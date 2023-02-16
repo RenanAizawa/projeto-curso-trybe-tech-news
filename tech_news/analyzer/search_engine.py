@@ -29,3 +29,9 @@ def search_by_date(date):
 # Requisito 9
 def search_by_category(category):
     """Seu código deve vir aqui"""
+    retorno_db = search_news({"category": {
+        "$regex": category, "$options": "-i",
+    }})
+    return [
+        (news["title"], news["url"]) for news in retorno_db
+    ]
