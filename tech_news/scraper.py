@@ -61,7 +61,7 @@ def scrape_news(html_content):
 # Requisito 5
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
-    url_base_page =  'https://blog.betrybe.com'
+    url_base_page = 'https://blog.betrybe.com'
     new_data = []
     html_data = fetch(url_base_page)
     news_links = scrape_updates(html_data)
